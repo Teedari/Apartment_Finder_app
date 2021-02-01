@@ -1,17 +1,17 @@
 import 'package:apartment_finder/util.dart' as util;
 import 'package:flutter/material.dart';
 
-class FormGroup extends StatelessWidget {
+class FormGroupDropDown extends StatelessWidget {
+  const FormGroupDropDown({
+    Key key,
+    @required this.label,
+  }) : super(key: key);
   final String label;
-  final bool obscureText;
-  final String placeholder;
-  const FormGroup(
-      {@required this.label, this.obscureText = false, this.placeholder});
+
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Text(
           label ?? 'no label',
@@ -22,23 +22,28 @@ class FormGroup extends StatelessWidget {
         ),
         Container(
           decoration: BoxDecoration(
-            // color: Color(0xFFFEEEEEE),
             color: util.secondaryColor,
+            //color: Color(0xFFFEEEEEE),
             borderRadius: BorderRadius.circular(30),
           ),
-          child: TextFormField(
+          child: DropdownButtonFormField(
             style: TextStyle(color: Colors.white),
-            obscureText: obscureText,
             decoration: InputDecoration(
-              hintText: obscureText
-                  ? '********************************************'
-                  : placeholder,
-              hintStyle: TextStyle(color: Colors.white),
               border: InputBorder.none,
               contentPadding: EdgeInsets.all(18),
             ),
+            hint: Text(
+              'Select Your Country',
+              style: TextStyle(color: Colors.white),
+            ),
+            onChanged: (String val) {},
+            items: [
+              ...['Ghana', 'Nigeria', 'Morocco', 'Germany'].map((text) =>
+                  DropdownMenuItem(
+                      child: Text(text), value: text.toLowerCase()))
+            ],
           ),
-        )
+        ),
       ],
     );
   }

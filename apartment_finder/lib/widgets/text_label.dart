@@ -6,7 +6,7 @@ class TextLabelAuth extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      'Login',
+      label ?? 'Not Labelled',
       style: TextStyle(
         fontWeight: FontWeight.bold,
         fontSize: 30,

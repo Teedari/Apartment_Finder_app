@@ -1,6 +1,8 @@
-import 'package:apartment_finder/pages/login.dart';
-import 'package:apartment_finder/pages/splash_screen.dart';
+// import './pages/login.dart';
+// import './pages/splash_screen.dart';
 import 'package:flutter/material.dart';
+
+import 'pages/register.dart';
 
 void main() {
   runApp(StartApp());
@@ -14,7 +16,7 @@ class StartApp extends StatelessWidget {
         primaryColor: Color(0xFF51d2d3),
         accentColor: Color(0xFFED4C0B),
       ),
-      home: Login(),
+      home: Register(),
     );
   }
 }
